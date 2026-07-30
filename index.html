@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D4z2 | CTF Writeups</title>
+    <title>D4z2 | CTF Writeups & Blog</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome for Icons -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Markdown & Highlighting -->
@@ -30,10 +30,7 @@
             animation: blink 0.7s infinite;
             margin-left: 2px;
         }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
         :root {
             --bg-base: #000000;
@@ -47,332 +44,152 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            position: relative;
-        }
-
+        body { background-color: var(--bg-base); color: var(--text-main); font-family: 'Inter', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; position: relative; }
         .mono { font-family: 'JetBrains Mono', monospace; }
-
-        /* Container */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; position: relative; z-index: 1; }
 
         /* --- TOP NAV --- */
-        .topnav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 0.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .brand {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 1.25rem;
-            letter-spacing: -0.01em;
-            text-align: center;
-        }
+        .topnav { display: flex; align-items: center; justify-content: space-between; padding-top: 0.5rem; margin-bottom: 2rem; }
+        .brand { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.01em; text-align: center; }
         .brand .dot { color: var(--accent); }
-        
-        .nav-btn {
-            padding: 0.55rem 1.15rem;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            font-family: 'Inter', sans-serif;
-            border: 1px solid var(--border);
-            background: transparent;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+        .nav-btn { padding: 0.55rem 1.15rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; font-family: 'Inter', sans-serif; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer; transition: all 0.2s ease; }
         .nav-btn:hover { color: var(--text-main); border-color: var(--accent); }
         .nav-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
 
         /* --- HERO SECTION --- */
-        .hero {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 3rem 2.5rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin-bottom: 2rem;
-        }
+        .hero { background-color: var(--bg-surface); border: 1px solid var(--border); border-radius: 16px; padding: 3rem 2.5rem; margin-bottom: 3rem; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin-bottom: 2rem; }
 
         /* --- ROAD TO 100 WU PROGRESS BAR --- */
-        .progress-container {
-            margin-bottom: 2rem;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
-            padding: 1.25rem;
-            border-radius: 12px;
-        }
-        .progress-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-main);
-        }
-        .progress-title {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent);
-            font-weight: 700;
-        }
-        .progress-bar-bg {
-            position: relative;
-            width: 100%;
-            height: 10px;
-            background-color: #18181b;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-        .progress-bar-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #14b8a6, var(--accent));
-            border-radius: 6px;
-            box-shadow: 0 0 12px rgba(45, 212, 191, 0.4);
-            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .progress-milestones {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            display: flex;
-            justify-content: space-between;
-            pointer-events: none;
-            padding: 0 25%;
-        }
-        .milestone {
-            width: 1px;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.15);
-        }
+        .progress-container { margin-bottom: 2rem; width: 100%; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border); padding: 1.25rem; border-radius: 12px; }
+        .progress-info { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--text-main); }
+        .progress-title { display: flex; align-items: center; gap: 0.5rem; color: var(--accent); font-weight: 700; }
+        .progress-bar-bg { position: relative; width: 100%; height: 10px; background-color: #18181b; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+        .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #14b8a6, var(--accent)); border-radius: 6px; box-shadow: 0 0 12px rgba(45, 212, 191, 0.4); transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
+        .progress-milestones { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: space-between; pointer-events: none; padding: 0 25%; }
+        .milestone { width: 1px; height: 100%; background-color: rgba(255, 255, 255, 0.15); }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            border: none;
-        }
-
+        /* --- GENERAL BUTTONS --- */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease; text-decoration: none; border: none; }
         .btn-primary { background-color: var(--accent); color: #000; }
         .btn-primary:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
-
         .btn-outline { background-color: transparent; color: var(--text-main); border: 1px solid var(--border); }
         .btn-outline:hover { background-color: var(--border); }
 
         /* --- FILTER CHIPS --- */
-        .filter-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 1.5rem;
-        }
-        .filter-btn {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 0.35rem 0.9rem;
-            border-radius: 999px;
-            font-size: 0.8rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
+        .filter-container { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
+        .filter-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 0.35rem 0.9rem; border-radius: 999px; font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
         .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
         .filter-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
 
         /* --- WRITEUP LIST --- */
         .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main); }
-
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-
-        .card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
+        .card { background-color: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column; }
         .card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(45, 212, 191, 0.1); }
-
-        .card-tag {
-            align-self: flex-start;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
-            font-weight: 700;
-            background: rgba(45, 212, 191, 0.1);
-            color: var(--accent);
-        }
+        .card-tag { align-self: flex-start; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.6rem; border-radius: 4px; font-weight: 700; background: rgba(45, 212, 191, 0.1); color: var(--accent); }
         .card-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.4; }
         .card-date { margin-top: auto; font-size: 0.85rem; color: var(--text-muted); }
 
         /* --- ABOUT ME VIEW --- */
-        .about-hero {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 3.5rem 2.5rem;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-            flex-wrap: wrap;
-        }
-
+        .about-hero { display: flex; align-items: center; gap: 3rem; background-color: var(--bg-surface); border: 1px solid var(--border); border-radius: 16px; padding: 3.5rem 2.5rem; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); flex-wrap: wrap; }
         .about-visual { position: relative; width: 200px; height: 200px; flex-shrink: 0; margin: 0 auto; }
-        .about-glow {
-            position: absolute; inset: -35px;
-            background: radial-gradient(circle, rgba(45, 212, 191, 0.25), transparent 70%);
-            filter: blur(18px);
-            animation: pulse 3.5s ease-in-out infinite;
-            z-index: 0;
-        }
+        .about-glow { position: absolute; inset: -35px; background: radial-gradient(circle, rgba(45, 212, 191, 0.25), transparent 70%); filter: blur(18px); animation: pulse 3.5s ease-in-out infinite; z-index: 0; }
         @keyframes pulse { 0%, 100% { opacity: 0.55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
-
-        .avatar-ring {
-            position: relative; z-index: 1;
-            width: 100%; height: 100%; border-radius: 50%;
-            padding: 4px;
-            background: linear-gradient(135deg, var(--accent), transparent 55%, var(--accent));
-            animation: float 4.5s ease-in-out infinite;
-        }
+        .avatar-ring { position: relative; z-index: 1; width: 100%; height: 100%; border-radius: 50%; padding: 4px; background: linear-gradient(135deg, var(--accent), transparent 55%, var(--accent)); animation: float 4.5s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-        .avatar {
-            width: 100%; height: 100%; border-radius: 50%;
-            background: var(--bg-card);
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'JetBrains Mono', monospace; font-size: 3rem; font-weight: 700;
-            color: var(--accent);
-        }
-
+        .avatar { width: 100%; height: 100%; border-radius: 50%; background: var(--bg-card); display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 3rem; font-weight: 700; color: var(--accent); }
         .about-text { flex: 1; min-width: 280px; }
-        
         .lang-toggle { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
-        .lang-btn {
-            background: transparent; border: 1px solid var(--border); color: var(--text-muted);
-            padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; 
-            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; transition: all 0.2s ease;
-        }
+        .lang-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 0.2rem 0.6rem; border-radius: 4px; cursor: pointer; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; transition: all 0.2s ease; }
         .lang-btn.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 700;}
         .lang-btn:hover:not(.active) { color: var(--text-main); border-color: var(--text-main); }
-
-        .about-eyebrow {
-            display: block; 
-            font-family: 'JetBrains Mono', monospace; 
-            color: #ef4444; 
-            font-size: 1.2rem; 
-            font-weight: 700; 
-            letter-spacing: 0.12em; 
-            margin-bottom: 0.9rem;
-            min-height: 1.7rem;
-        }
-        .about-text h1 { 
-            font-size: clamp(1.9rem, 4vw, 2.8rem); 
-            font-weight: 800; 
-            letter-spacing: -0.02em; 
-            margin-bottom: 0.6rem;
-            min-height: 1.7em;
-        }
+        .about-eyebrow { display: block; font-family: 'JetBrains Mono', monospace; color: #ef4444; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.12em; margin-bottom: 0.9rem; min-height: 1.7rem; }
+        .about-text h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.6rem; min-height: 1.7em; }
         .about-text h1 .accent-text { color: var(--accent); }
-        
         .about-bio { color: var(--text-muted); font-size: 1.02rem; line-height: 1.85; margin-bottom: 1rem; max-width: 560px; }
-
         .skill-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.6rem 0; }
-        .skill-chip {
-            padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 999px;
-            font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; color: var(--text-main);
-            transition: all 0.2s ease;
-        }
+        .skill-chip { padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; color: var(--text-main); transition: all 0.2s ease; }
         .skill-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
-        .social-row { display: flex; gap: 0.8rem; margin-bottom: 2rem; }
-        .social-btn {
-            width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--text-muted); text-decoration: none; transition: all 0.2s ease;
-        }
-        .social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
-
-        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 2.5rem 0 3rem; }
+        .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin: 2.5rem 0; }
         .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem 1rem; text-align: center; transition: border-color 0.2s ease; }
         .stat-card:hover { border-color: var(--accent); }
         .stat-num { display: block; font-family: 'JetBrains Mono', monospace; font-size: 1.9rem; font-weight: 700; color: var(--accent); margin-bottom: 0.3rem; }
         .stat-label { color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
 
-        @media (max-width: 680px) {
-            .about-hero { flex-direction: column; text-align: center; padding: 2.5rem 1.75rem; }
-            .about-bio { margin-left: auto; margin-right: auto; }
-            .skill-chips, .social-row, .lang-toggle { justify-content: center; }
-            .topnav { flex-direction: column; gap: 1rem; }
+        /* --- BLOG CAROUSEL --- */
+        .blog-section { margin: 4rem 0 1rem; }
+        .blog-section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem; }
+        .carousel-wrapper { position: relative; width: 100%; overflow: hidden; border-radius: 12px; }
+        
+        .carousel-track { display: flex; gap: 1.5rem; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+        
+        /* KHUÔN 1/4 - ẢNH NỀN & TIÊU ĐỀ */
+        .blog-card { 
+            min-width: calc(25% - 1.125rem); 
+            height: 180px; /* Tăng lên xíu cho ảnh hiển thị đẹp hơn */
+            background: var(--bg-card); 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            padding: 1.25rem; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-end; /* Đẩy Text xuống dưới cùng đáy ảnh */
+            cursor: pointer; 
+            transition: all 0.2s ease; 
+            overflow: hidden; 
+            position: relative;
         }
+        
+        .blog-card.has-bg { border: none; }
+        
+        .blog-card:hover { 
+            border-color: var(--accent); 
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 25px -5px rgba(45, 212, 191, 0.25); 
+        }
+        
+        /* THẺ TRỐNG (Viền nét đứt) */
+        .blog-card.empty-slot { background: transparent; border: 2px dashed var(--border); cursor: default; }
+        .blog-card.empty-slot:hover { transform: none; box-shadow: none; border-color: var(--border); }
+        
+        /* Bọc chữ để luôn nổi lên trên ảnh */
+        .blog-content-wrapper { position: relative; z-index: 2; }
+
+        /* Các thành phần chữ bên trong */
+        .blog-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--accent); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: bold; display: inline-block;}
+        
+        .blog-title { 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            margin: 0; 
+            line-height: 1.4; 
+            color: #ffffff; 
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Viền bóng đen để chữ không chìm vào ảnh */
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Tối đa 3 dòng tiêu đề */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        /* Chỉnh lại trên điện thoại/Tablet */
+        @media (max-width: 900px) { .blog-card { min-width: calc(50% - 0.75rem); } }
+        @media (max-width: 600px) { .blog-card { min-width: 100%; } }
+        
+        .blog-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); margin-bottom: 0.5rem; text-transform: uppercase; font-weight: bold;}
+        .blog-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.4; color: var(--text-main); }
+        .blog-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem; flex-grow: 1; }
+        .blog-readmore { font-size: 0.85rem; color: var(--accent); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem; }
+        .carousel-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
+        .carousel-dot { width: 10px; height: 10px; border-radius: 50%; background-color: var(--border); cursor: pointer; transition: all 0.3s ease; }
+        .carousel-dot.active { background-color: #fff; transform: scale(1.3); }
 
         /* --- READER MODE --- */
-        #reader-view {
-            display: none;
-            animation: fadeIn 0.3s ease;
-            background: var(--bg-surface);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .back-btn {
-            background: none; border: none; color: var(--text-muted); font-size: 1rem; cursor: pointer;
-            display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; padding: 0;
-            transition: color 0.2s;
-        }
+        #reader-view { display: none; animation: fadeIn 0.3s ease; background: var(--bg-surface); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); }
+        .back-btn { background: none; border: none; color: var(--text-muted); font-size: 1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; padding: 0; transition: color 0.2s; }
         .back-btn:hover { color: var(--accent); }
-
         .reader-header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
         .reader-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
         .reader-meta { color: var(--text-muted); font-size: 0.95rem; display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
@@ -391,146 +208,49 @@
         .markdown-body blockquote { border-left: 4px solid var(--accent); padding-left: 1.25rem; margin-left: 0; color: var(--text-muted); font-style: italic; }
         .markdown-body ul, .markdown-body ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
         .markdown-body li { margin-bottom: 0.5rem; }
-
         .status-msg { text-align: center; padding: 3rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
         .status-msg i { color: var(--accent); margin-right: 0.5rem; }
 
         /* --- INTERACTIVE TERMINAL SECTION STYLES --- */
-        .terminal-section {
-            margin-top: 4rem;
-            margin-bottom: 2rem;
-            background-color: #0c0c0c;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .term-header {
-            display: flex;
-            align-items: center;
-            background-color: #1a1a1a;
-            padding: 0.6rem 1rem;
-            border-bottom: 1px solid var(--border);
-            position: relative;
-        }
-
+        .terminal-section { margin-top: 4rem; margin-bottom: 2rem; background-color: #0c0c0c; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); }
+        .term-header { display: flex; align-items: center; background-color: #1a1a1a; padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); position: relative; }
         .term-buttons { display: flex; gap: 8px; }
         .term-btn { width: 12px; height: 12px; border-radius: 50%; }
         .term-btn.red { background-color: #ff5f56; }
         .term-btn.yellow { background-color: #ffbd2e; }
         .term-btn.green { background-color: #27c93f; }
-
-        .term-title {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            color: #888;
-            font-weight: 500;
-        }
-
-        .term-body {
-            padding: 1.25rem;
-            font-size: 0.9rem;
-            line-height: 1.7;
-            color: #d4d4d8;
-            height: 250px;
-            overflow-y: auto;
-            cursor: text;
-        }
-        
+        .term-title { position: absolute; left: 50%; transform: translateX(-50%); font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #888; font-weight: 500; }
+        .term-body { padding: 1.25rem; font-size: 0.9rem; line-height: 1.7; color: #d4d4d8; height: 250px; overflow-y: auto; cursor: text; }
         .term-body::-webkit-scrollbar { width: 8px; }
         .term-body::-webkit-scrollbar-track { background: #0c0c0c; }
         .term-body::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
         .term-body::-webkit-scrollbar-thumb:hover { background: #555; }
-
         .term-body p { margin-bottom: 0.4rem; }
         .term-user { color: #2dd4bf; font-weight: bold; }
         .term-path { color: #3b82f6; font-weight: bold; }
         .term-cmd { color: #facc15; }
         .term-output { color: #a1a1aa; padding-left: 1rem; }
-        
-        .term-input-line {
-            display: flex;
-            align-items: center;
-            margin-top: 0.4rem;
-        }
-
-        #term-input {
-            background: transparent;
-            border: none;
-            color: #facc15;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            flex: 1;
-            margin-left: 8px;
-            outline: none;
-            caret-color: #d4d4d8;
-        }
+        .term-input-line { display: flex; align-items: center; margin-top: 0.4rem; }
+        #term-input { background: transparent; border: none; color: #facc15; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; flex: 1; margin-left: 8px; outline: none; caret-color: #d4d4d8; }
 
         /* --- FOOTER STYLES --- */
-        .site-footer {
-            margin-top: 4rem;
-            padding: 2rem 0;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
+        .site-footer { margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .footer-left p { margin-bottom: 0.25rem; }
         .footer-right { display: flex; align-items: center; gap: 1rem; }
+        .social-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); text-decoration: none; transition: all 0.2s ease; }
+        .social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+        .back-to-top { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 0.4rem; }
+        .back-to-top:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
 
-        .back-to-top {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .back-to-top:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 600px) {
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
+        @media (max-width: 600px) { .footer-content { flex-direction: column; text-align: center; } }
         /* --- TRAP CARD ANIMATION --- */
-        @keyframes trapActivate {
-            0% { transform: scale(0.1) rotate(180deg); opacity: 0; }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .avatar-ring, .about-glow { animation: none; }
-        }
+        @keyframes trapActivate { 0% { transform: scale(0.1) rotate(180deg); opacity: 0; } 100% { transform: scale(1) rotate(0deg); opacity: 1; } }
+        @media (prefers-reduced-motion: reduce) { .avatar-ring, .about-glow { animation: none; } }
     </style>
 </head>
 <body>
 
-    <!-- Khung chứa mạng nhện (Background) -->
     <div id="particles-js" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div>
 
     <div class="container">
@@ -553,20 +273,13 @@
                 </div>
 
                 <div class="about-text">
-                    <!--<div class="lang-toggle">
-                        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-                    </div>-->
                     
                     <span class="about-eyebrow mono" id="typing-whoami"></span>
                     <h1><span class="accent-text" id="typing-name"></span></h1>
                     
                     <div id="bio-en">
-                        <p class="about-bio">
-                            I'm a young and curious mind exploring the world of cybersecurity through CTF challenges. This digital space serves as my personal archive for writeups, notes, and fragments of code gathered along the journey.
-                        </p>
-                        <p class="about-bio">
-                            Every solved challenge is just another piece of the puzzle. Hope you find something interesting or helpful here!
-                        </p>
+                        <p class="about-bio">I'm a young and curious mind exploring the world of cybersecurity through CTF challenges. This digital space serves as my personal archive for writeups, notes, and fragments of code gathered along the journey.</p>
+                        <p class="about-bio">Every solved challenge is just another piece of the puzzle. Hope you find something interesting or helpful here!</p>
                     </div>
 
                     <div class="skill-chips">
@@ -575,7 +288,7 @@
                         <span class="skill-chip">LYKN</span>
                     </div>
 
-                    <button class="btn btn-primary" onclick="showMainView()">
+                    <button class="btn btn-primary" onclick="showMainView()" style="margin-top: 1rem;">
                         Explore Writeups <i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>
@@ -595,15 +308,27 @@
                     <span class="stat-label">Cups of Coffee</span>
                 </div>
             </div>
+
+            <!-- PERSONAL BLOG CAROUSEL -->
+            <div class="blog-section">
+                <h2 class="blog-section-title"><i class="fa-solid fa-book-journal-whills" style="color: var(--accent);"></i> Personal Notes & Blog</h2>
+                <div class="carousel-wrapper" id="blog-carousel">
+                    <div class="carousel-track" id="carousel-track">
+                        <!-- JS sẽ tự động lấy các Github Issue có label 'blog' và vẽ vào đây -->
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carousel-dots">
+                    <!-- JS sẽ tự động sinh các dấu chấm vào đây -->
+                </div>
+            </div>
         </div>
 
-        <!-- MÀN HÌNH CHÍNH (HERO + LIST) -->
+        <!-- MÀN HÌNH CHÍNH (HERO + LIST WRITEUPS) -->
         <div id="main-view" style="display: none;">
             <section class="hero">
                 <h1>Learning the Art of Write-ups</h1>
                 <p>This is a chronicle of my CTF journey as an Information Security student. Here, I document everything I learn and achieve along the way. I hope you enjoy reading them.</p>
 
-                <!-- ROAD TO 100 WU PROGRESS BAR -->
                 <div class="progress-container">
                     <div class="progress-info mono">
                         <span class="progress-title"><i class="fa-solid fa-flag-checkered"></i> Road to 100 WUs</span>
@@ -625,11 +350,7 @@
                     <h2 class="section-title" style="margin-bottom: 0;">Latest Case Files</h2>
                 </div>
                 
-                <!-- BỘ LỌC (TAG FILTERS) -->
-                <div id="filter-container" class="filter-container">
-                    <!-- Nút lọc sẽ tự động generate bằng JS -->
-                </div>
-
+                <div id="filter-container" class="filter-container"></div>
                 <div id="post-list" class="grid">
                     <div class="status-msg" style="grid-column: 1 / -1;">
                         <i class="fa-solid fa-circle-notch fa-spin"></i> Fetching from GitHub API...
@@ -640,8 +361,8 @@
 
         <!-- MÀN HÌNH ĐỌC BÀI (READER) -->
         <div id="reader-view">
-            <button class="back-btn" onclick="showMainView()">
-                <i class="fa-solid fa-arrow-left"></i> Back to Writeups
+            <button class="back-btn" onclick="goBackToPreviousView()">
+                <i class="fa-solid fa-arrow-left"></i> Back
             </button>
 
             <div class="reader-header">
@@ -651,7 +372,7 @@
             </div>
 
             <div id="post-content" class="markdown-body">
-                <!-- Nội dung Markdown sẽ render vào đây -->
+                <!-- Nội dung Markdown -->
             </div>
         </div>
 
@@ -665,14 +386,12 @@
                 </div>
                 <div class="term-title">d4z2@kali: ~</div>
             </div>
-            <!-- Bấm vào bất kỳ đâu trong terminal sẽ tự động focus vào ô nhập liệu -->
             <div class="term-body mono" id="term-body" onclick="document.getElementById('term-input').focus()">
                 <div id="term-output-container">
                     <p><span class="term-user">d4z2@kali</span>:<span class="term-path">~</span>$ <span class="term-cmd">echo "Welcome to my interactive shell!"</span></p>
                     <p class="term-output">Welcome to my interactive shell!</p>
                     <p class="term-output" style="font-size: 0.8rem; margin-top:-5px;">Type 'help' to see available commands.</p>
                 </div>
-                
                 <div class="term-input-line">
                     <span class="term-user">d4z2@kali</span>:<span class="term-path">~</span>$ 
                     <input type="text" id="term-input" autocomplete="off" spellcheck="false">
@@ -684,16 +403,13 @@
         <footer class="site-footer">
             <div class="footer-content mono">
                 <div class="footer-left">
-                    <p>© 2026 D4z2.</p>
+                    <p>© 2026 D4z2. All rights reserved.</p>
                     <p style="font-size: 0.75rem; opacity: 0.7;">Keep curiosity alive & happy hacking.</p>
                 </div>
                 <div class="footer-right">
-                    
-                    <!-- DÁN NÚT GITHUB VÀO ĐÂY -->
                     <a class="social-btn" href="https://github.com/d4z2" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                         <i class="fa-brands fa-github"></i>
                     </a>
-                    
                     <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
                         Back to top <i class="fa-solid fa-arrow-up"></i>
                     </button>
@@ -701,11 +417,11 @@
             </div>
         </footer>
 
-    </div> <!-- HẾT KHUNG CONTAINER -->
+    </div> 
 
-    <!-- TRAP CARD OVERLAY (EASTER EGG) -->
+    <!-- TRAP CARD OVERLAY -->
     <div id="trap-card-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; justify-content: center; align-items: center; flex-direction: column;">
-        <img src="meme.png" alt="Trap Card" style="max-width: 90%; max-height: 80vh; border-radius: 12px; box-shadow: 0 0 50px rgba(239, 68, 68, 0.6); animation: trapActivate 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;">
+        <img src="image_c8ee58.jpg" alt="Trap Card" style="max-width: 90%; max-height: 80vh; border-radius: 12px; box-shadow: 0 0 50px rgba(239, 68, 68, 0.6); animation: trapActivate 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;">
         <p style="color: white; font-family: 'JetBrains Mono', monospace; margin-top: 1.5rem; font-size: 1.2rem; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">You activated my trap card!</p>
         <button onclick="document.getElementById('trap-card-overlay').style.display='none'" style="margin-top: 1rem; padding: 0.6rem 1.2rem; background: var(--accent); color: #000; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-family: 'JetBrains Mono', monospace;">Close</button>
     </div>
@@ -714,7 +430,10 @@
     <script>
         const GITHUB_USERNAME = 'd4z2';
         const REPO_NAME = 'beginnerwu';
-        let posts = [];
+        
+        let allPosts = [];     // Chứa tất cả Issue mở
+        let writeupPosts = []; // Chỉ chứa Issue có label 'writeup'
+        let blogPosts = [];    // Chỉ chứa Issue có label 'blog'
 
         marked.setOptions({
             highlight: (code, lang) => {
@@ -731,7 +450,6 @@
             }
         });
 
-        // Hàm chuyển đổi ngôn ngữ
         function setLang(lang) {
             if (lang === 'vi') {
                 document.getElementById('bio-vi').style.display = 'block';
@@ -751,7 +469,6 @@
             document.getElementById('main-view').style.display = 'none';
             document.getElementById('reader-view').style.display = 'none';
             document.getElementById('terminal-view').style.display = 'block';
-            
             document.getElementById('nav-about').classList.add('active');
             document.getElementById('nav-explore').classList.remove('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -761,8 +478,7 @@
             document.getElementById('about-view').style.display = 'none';
             document.getElementById('reader-view').style.display = 'none';
             document.getElementById('main-view').style.display = 'block';
-            document.getElementById('terminal-view').style.display = 'none'; // Giấu Terminal đi
-            
+            document.getElementById('terminal-view').style.display = 'none'; 
             document.getElementById('nav-about').classList.remove('active');
             document.getElementById('nav-explore').classList.add('active');
             window.scrollTo({ top: 0, behavior: 'instant' });
@@ -771,120 +487,22 @@
         function updateRoadProgress(count) {
             const target = 100;
             const percentage = Math.min(Math.round((count / target) * 100), 100);
-            
             document.getElementById('progress-text').textContent = `${count} / ${target} (${percentage}%)`;
             document.getElementById('progress-fill').style.width = `${percentage}%`;
         }
 
-        async function fetchIssues() {
-            const listEl = document.getElementById('post-list');
-            const cacheKey = `posts_cache_${GITHUB_USERNAME}_${REPO_NAME}`;
-            const cacheTimeKey = `${cacheKey}_time`;
-            const cachedPosts = localStorage.getItem(cacheKey);
-            const cachedTime = localStorage.getItem(cacheTimeKey);
-
-            if (cachedPosts && cachedTime && (Date.now() - cachedTime < 600000)) {
-                posts = JSON.parse(cachedPosts);
-                document.getElementById('stat-writeups').textContent = posts.length;
-                updateRoadProgress(posts.length);
-                renderFilters();
-                renderList(posts);
-                return;
-            }
-
-            const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/issues?labels=writeup&state=open&per_page=100`;
-
-            try {
-                const res = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
-                
-                if (!res.ok) {
-                    if (res.status === 403 && cachedPosts) {
-                        posts = JSON.parse(cachedPosts);
-                        document.getElementById('stat-writeups').textContent = posts.length;
-                        updateRoadProgress(posts.length);
-                        renderFilters();
-                        renderList(posts);
-                        return;
-                    }
-                    if (res.status === 403) {
-                        throw new Error("GitHub API Limit (403). Waiting for limit reset...");
-                    }
-                    throw new Error(`API Error: ${res.status}`);
-                }
-                
-                const data = await res.json();
-                posts = data.filter(item => !item.pull_request);
-                
-                localStorage.setItem(cacheKey, JSON.stringify(posts));
-                localStorage.setItem(cacheTimeKey, Date.now());
-
-                const totalPosts = posts.length;
-                document.getElementById('stat-writeups').textContent = totalPosts;
-                updateRoadProgress(totalPosts);
-
-                if (totalPosts === 0) {
-                    listEl.innerHTML = `<div class="status-msg" style="grid-column: 1 / -1;">No writeups found. Create an issue with label 'writeup' on GitHub.</div>`;
-                    return;
-                }
-                
-                renderFilters();
-                renderList(posts);
-            } catch (err) {
-                listEl.innerHTML = `<div class="status-msg" style="grid-column: 1 / -1; color: #ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Error loading writeups: ${err.message}</div>`;
-                console.error(err);
-            }
+        // Kiểm tra xem bài có chứa label cụ thể không
+        function hasLabel(post, labelName) {
+            const labels = (post.labels || []).map(l => (typeof l === 'string' ? l : l.name || '').toLowerCase());
+            return labels.includes(labelName.toLowerCase());
         }
 
-        async function fetchComments(issueNumber, container, issueUrl) {
-            container.innerHTML = '<div class="status-msg"><i class="fa-solid fa-circle-notch fa-spin"></i> Loading comments...</div>';
-            try {
-                const res = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/issues/${issueNumber}/comments`);
-                const comments = await res.json();
-                
-                let html = `
-                <div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--text-main);">
-                        <i class="fa-regular fa-comments"></i> Comments (${comments.length})
-                    </h3>`;
-
-                if (comments.length > 0) {
-                    comments.forEach(c => {
-                        const date = new Date(c.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-                        const safeBody = DOMPurify.sanitize(marked.parse(c.body));
-
-                        html += `
-                        <div style="margin-bottom: 1.5rem; padding: 1.25rem; background: var(--bg-base); border: 1px solid var(--border); border-radius: 8px;">
-                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-                                <img src="${c.user.avatar_url}" style="width: 32px; height: 32px; border-radius: 50%;">
-                                <div>
-                                    <strong style="color: var(--accent);">${c.user.login}</strong>
-                                    <span style="color: var(--text-muted); font-size: 0.85rem; margin-left: 0.5rem;">${date}</span>
-                                </div>
-                            </div>
-                            <div class="markdown-body" style="font-size: 0.95rem;">${safeBody}</div>
-                        </div>`;
-                    });
-                } else {
-                    html += `<p style="color: var(--text-muted); margin-bottom: 1.5rem;">No comments yet. Be the first to share your thoughts!</p>`;
-                }
-
-                html += `
-                    <div style="margin-top: 2rem;">
-                        <a href="${issueUrl}" target="_blank" class="btn btn-outline" style="text-decoration: none;">
-                            <i class="fa-brands fa-github" style="margin-right: 0.5rem;"></i> Post a Comment via GitHub
-                        </a>
-                    </div>
-                </div>`;
-                container.innerHTML = html;
-            } catch (err) {
-                container.innerHTML = `<p style="color: #ef4444;">Failed to load comments.</p>`;
-            }
-        }
-
+        // Lấy tag hiển thị (bỏ qua 'writeup' và 'blog')
         function getCategory(post) {
             const labels = (post.labels || []).map(l => (typeof l === 'string' ? l : l.name || '').toLowerCase());
-            const specificLabels = labels.filter(l => l !== 'writeup' && !l.startsWith('star:'));
-            return specificLabels.length > 0 ? specificLabels[0] : 'CTF';
+            const specificLabels = labels.filter(l => l !== 'writeup' && l !== 'blog' && !l.startsWith('star:'));
+            if (specificLabels.length > 0) return specificLabels[0];
+            return hasLabel(post, 'blog') ? 'Blog' : 'CTF';
         }
 
         function getRating(post) {
@@ -897,21 +515,174 @@
         function generateStarsHtml(rating) {
             let html = '<span style="display: inline-flex; gap: 2px; align-items: center; font-size: 0.85rem;">';
             for (let i = 1; i <= 5; i++) {
-                if (i <= rating) {
-                    html += '<i class="fa-solid fa-star" style="color: #fbbf24;"></i>';
-                } else {
-                    html += '<i class="fa-regular fa-star" style="color: var(--border);"></i>';
-                }
+                if (i <= rating) html += '<i class="fa-solid fa-star" style="color: #fbbf24;"></i>';
+                else html += '<i class="fa-regular fa-star" style="color: var(--border);"></i>';
             }
             html += '</span>';
             return html;
         }
 
-        // TÍNH NĂNG TẠO BỘ LỌC (Cố định All, Pwn, Rev)
-        function renderFilters() {
+        async function fetchIssues() {
+            const listEl = document.getElementById('post-list');
+            const cacheKey = `posts_cache_${GITHUB_USERNAME}_${REPO_NAME}_v2`; // Đổi key cache để ép tải lại
+            const cacheTimeKey = `${cacheKey}_time`;
+            const cachedPosts = localStorage.getItem(cacheKey);
+            const cachedTime = localStorage.getItem(cacheTimeKey);
+
+            if (cachedPosts && cachedTime && (Date.now() - cachedTime < 600000)) {
+                allPosts = JSON.parse(cachedPosts);
+                processFetchedData();
+                return;
+            }
+
+            // Gọi API lấy TOÀN BỘ open issues (bỏ điều kiện labels=writeup trên URL)
+            const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/issues?state=open&per_page=100`;
+
+            try {
+                const res = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
+                
+                if (!res.ok) {
+                    if (res.status === 403 && cachedPosts) {
+                        allPosts = JSON.parse(cachedPosts);
+                        processFetchedData();
+                        return;
+                    }
+                    throw new Error(`API Error: ${res.status}`);
+                }
+                
+                const data = await res.json();
+                allPosts = data.filter(item => !item.pull_request); // Bỏ các Pull request
+                
+                localStorage.setItem(cacheKey, JSON.stringify(allPosts));
+                localStorage.setItem(cacheTimeKey, Date.now());
+
+                processFetchedData();
+            } catch (err) {
+                listEl.innerHTML = `<div class="status-msg" style="grid-column: 1 / -1; color: #ef4444;"><i class="fa-solid fa-triangle-exclamation"></i> Lỗi tải dữ liệu: ${err.message}</div>`;
+                console.error(err);
+            }
+        }
+
+        function processFetchedData() {
+            // Tách dữ liệu: Writeup vs Blog
+            writeupPosts = allPosts.filter(p => hasLabel(p, 'writeup'));
+            blogPosts = allPosts.filter(p => hasLabel(p, 'blog'));
+
+            // 1. Cập nhật phần Writeup (Main View)
+            document.getElementById('stat-writeups').textContent = writeupPosts.length;
+            updateRoadProgress(writeupPosts.length);
+            
+            if (writeupPosts.length === 0) {
+                document.getElementById('post-list').innerHTML = `<div class="status-msg" style="grid-column: 1 / -1;">No writeups found. Create an issue with label 'writeup' on GitHub.</div>`;
+            } else {
+                renderFilters(writeupPosts);
+                renderList(writeupPosts);
+            }
+
+            // 2. Cập nhật phần Blog Carousel (About View)
+            renderBlogCarousel(blogPosts);
+        }
+
+        // --- BLOG CAROUSEL RENDERER & LOGIC ---
+        let currentSlide = 0;
+        let autoSlideInterval;
+
+        function renderBlogCarousel(blogs) {
+            const track = document.getElementById('carousel-track');
+            const dotsContainer = document.getElementById('carousel-dots');
+            track.innerHTML = '';
+            dotsContainer.innerHTML = '';
+
+            const totalSlots = Math.max(blogs.length, 4);
+
+            for (let i = 0; i < totalSlots; i++) {
+                const card = document.createElement('div');
+                const blog = blogs[i];
+
+                if (blog) {
+                    const tag = getCategory(blog);
+                    
+                    // "Thủ thuật" Regex: Tìm URL của bức ảnh ĐẦU TIÊN xuất hiện trong bài viết Github
+                    const imgMatch = blog.body ? blog.body.match(/!\[.*?\]\((.*?)\)|<img.*?src=["'](.*?)["']/) : null;
+                    const imgUrl = imgMatch ? (imgMatch[1] || imgMatch[2]) : '';
+
+                    card.className = imgUrl ? 'blog-card has-bg' : 'blog-card';
+                    card.onclick = () => openPost(blog.id);
+                    
+                    // Phủ lớp gradient đen mờ lên ảnh để chữ luôn đọc được
+                    if (imgUrl) {
+                        card.style = `background-image: linear-gradient(to top, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.1) 100%), url('${imgUrl}'); background-size: cover; background-position: center;`;
+                    }
+
+                    // Chỉ để lại Tag và Title
+                    card.innerHTML = `
+                        <div class="blog-content-wrapper">
+                            <span class="blog-tag">${tag}</span>
+                            <h3 class="blog-title">${blog.title}</h3>
+                        </div>
+                    `;
+                } else {
+                    card.className = 'blog-card empty-slot';
+                }
+                track.appendChild(card);
+            }
+
+            clearInterval(autoSlideInterval);
+            currentSlide = 0;
+            track.style.transform = `translateX(0px)`;
+
+            if (blogs.length <= 4) {
+                dotsContainer.style.display = 'none';
+            } else {
+                dotsContainer.style.display = 'flex';
+                for (let i = 0; i < blogs.length; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+                    dot.onclick = () => goToSlide(i);
+                    dotsContainer.appendChild(dot);
+                }
+                startAutoSlide();
+            }
+        }
+
+        function goToSlide(index) {
+            const track = document.getElementById('carousel-track');
+            const cards = track.querySelectorAll('.blog-card');
+            const dots = document.querySelectorAll('.carousel-dot');
+            if (cards.length <= 1) return;
+            
+            if (index >= cards.length) index = 0;
+            if (index < 0) index = cards.length - 1;
+            currentSlide = index;
+
+            const cardWidth = cards[0].offsetWidth;
+            const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+            const containerWidth = document.getElementById('blog-carousel').offsetWidth;
+            const maxScroll = track.scrollWidth - containerWidth;
+            
+            let moveAmount = (cardWidth + gap) * currentSlide;
+            if (moveAmount > maxScroll) moveAmount = maxScroll; 
+            if (moveAmount < 0) moveAmount = 0;
+
+            track.style.transform = `translateX(-${moveAmount}px)`;
+
+            dots.forEach(d => d.classList.remove('active'));
+            if(dots[currentSlide]) dots[currentSlide].classList.add('active');
+
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 3500); 
+        }
+
+        // --- FILTER VÀ HIỂN THỊ WRITEUP ---
+        function renderFilters(postsArray) {
             const filterContainer = document.getElementById('filter-container');
             filterContainer.innerHTML = '';
-            
             const allowedFilters = ['All', 'Pwn', 'Rev'];
 
             allowedFilters.forEach(cat => {
@@ -924,10 +695,9 @@
                     btn.classList.add('active');
                     
                     if (cat === 'All') {
-                        renderList(posts);
+                        renderList(postsArray);
                     } else {
-                        // Tìm bài viết có chứa chuỗi "pwn" hoặc "rev" trong labels
-                        const filtered = posts.filter(p => {
+                        const filtered = postsArray.filter(p => {
                             const labels = (p.labels || []).map(l => (typeof l === 'string' ? l : l.name || '').toLowerCase());
                             return labels.some(l => l.includes(cat.toLowerCase()));
                         });
@@ -968,9 +738,18 @@
             });
         }
 
+        let lastVisitedView = 'main';
+
+        // Hàm mở bài chung cho cả Blog và Writeup
         function openPost(id) {
-            const post = posts.find(p => p.id === id);
+            const post = allPosts.find(p => p.id === id); // Tìm kiếm trên cả 2 nguồn
             if (!post) return;
+
+            if (document.getElementById('about-view').style.display === 'block') {
+                lastVisitedView = 'about';
+            } else {
+                lastVisitedView = 'main';
+            }
 
             const rating = getRating(post);
             document.getElementById('post-tag').textContent = getCategory(post);
@@ -998,84 +777,93 @@
             document.getElementById('about-view').style.display = 'none';
             document.getElementById('main-view').style.display = 'none';
             document.getElementById('reader-view').style.display = 'block';
-            document.getElementById('terminal-view').style.display = 'none'; // Giấu Terminal đi
+            document.getElementById('terminal-view').style.display = 'none';
             
+            // Xóa highlight của thanh điều hướng để người dùng tập trung đọc
             document.getElementById('nav-about').classList.remove('active');
-            document.getElementById('nav-explore').classList.add('active');
+            document.getElementById('nav-explore').classList.remove('active');
             window.scrollTo(0, 0);
         }
 
-        // Hiệu ứng gõ chữ
+        function goBackToPreviousView() {
+            if (lastVisitedView === 'about') {
+                showAbout();
+            } else {
+                showMainView();
+            }
+        }
+
+        async function fetchComments(issueNumber, container, issueUrl) {
+            container.innerHTML = '<div class="status-msg"><i class="fa-solid fa-circle-notch fa-spin"></i> Loading comments...</div>';
+            try {
+                const res = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/issues/${issueNumber}/comments`);
+                const comments = await res.json();
+                
+                let html = `<div style="margin-top: 4rem; border-top: 1px solid var(--border); padding-top: 2rem;"><h3 style="margin-bottom: 1.5rem; color: var(--text-main);"><i class="fa-regular fa-comments"></i> Comments (${comments.length})</h3>`;
+
+                if (comments.length > 0) {
+                    comments.forEach(c => {
+                        const date = new Date(c.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                        const safeBody = DOMPurify.sanitize(marked.parse(c.body));
+                        html += `
+                        <div style="margin-bottom: 1.5rem; padding: 1.25rem; background: var(--bg-base); border: 1px solid var(--border); border-radius: 8px;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                                <img src="${c.user.avatar_url}" style="width: 32px; height: 32px; border-radius: 50%;">
+                                <div><strong style="color: var(--accent);">${c.user.login}</strong><span style="color: var(--text-muted); font-size: 0.85rem; margin-left: 0.5rem;">${date}</span></div>
+                            </div>
+                            <div class="markdown-body" style="font-size: 0.95rem;">${safeBody}</div>
+                        </div>`;
+                    });
+                } else {
+                    html += `<p style="color: var(--text-muted); margin-bottom: 1.5rem;">No comments yet. Be the first to share your thoughts!</p>`;
+                }
+
+                html += `<div style="margin-top: 2rem;"><a href="${issueUrl}" target="_blank" class="btn btn-outline" style="text-decoration: none;"><i class="fa-brands fa-github" style="margin-right: 0.5rem;"></i> Post a Comment via GitHub</a></div></div>`;
+                container.innerHTML = html;
+            } catch (err) {
+                container.innerHTML = `<p style="color: #ef4444;">Failed to load comments.</p>`;
+            }
+        }
+
+        // Hiệu ứng gõ chữ Terminal
         function typeWriterSequence() {
             const elWhoami = document.getElementById('typing-whoami');
             const elName = document.getElementById('typing-name');
             if (!elWhoami || !elName) return;
-
-            const textWhoami = "$ whoami";
-            const textName = "D4z2";
-            const speed = 120;
-            const delayBetweenLoops = 3000;
-
+            const textWhoami = "$ whoami"; const textName = "D4z2";
+            const speed = 120; const delayBetweenLoops = 3000;
             const cursor = document.createElement('span');
-            cursor.className = 'typing-cursor';
-            cursor.textContent = '_';
+            cursor.className = 'typing-cursor'; cursor.textContent = '_';
 
             function runCycle() {
-                elWhoami.textContent = '';
-                elName.textContent = '';
-                
+                elWhoami.textContent = ''; elName.textContent = '';
                 let i = 0;
                 function typeWhoami() {
-                    if (i < textWhoami.length) {
-                        elWhoami.textContent += textWhoami.charAt(i);
-                        i++;
-                        setTimeout(typeWhoami, speed);
-                    } else {
-                        setTimeout(typeNameStart, 300);
-                    }
+                    if (i < textWhoami.length) { elWhoami.textContent += textWhoami.charAt(i); i++; setTimeout(typeWhoami, speed); } 
+                    else { setTimeout(typeNameStart, 300); }
                 }
-
                 let j = 0;
                 function typeNameStart() {
-                    if (j < textName.length) {
-                        elName.textContent = textName.substring(0, j + 1);
-                        elName.appendChild(cursor);
-                        j++;
-                        setTimeout(typeNameStart, speed);
-                    } else {
-                        setTimeout(eraseAll, delayBetweenLoops);
-                    }
+                    if (j < textName.length) { elName.textContent = textName.substring(0, j + 1); elName.appendChild(cursor); j++; setTimeout(typeNameStart, speed); } 
+                    else { setTimeout(eraseAll, delayBetweenLoops); }
                 }
-
                 function eraseAll() {
-                    elName.innerHTML = ''; 
-                    let nameLen = textName.length;
-                    
+                    elName.innerHTML = ''; let nameLen = textName.length;
                     function eraseName() {
-                        if (nameLen > 0) {
-                            elName.textContent = textName.substring(0, nameLen - 1);
-                            nameLen--;
-                            setTimeout(eraseName, speed / 2);
-                        } else {
+                        if (nameLen > 0) { elName.textContent = textName.substring(0, nameLen - 1); nameLen--; setTimeout(eraseName, speed / 2); } 
+                        else {
                             let whoamiLen = textWhoami.length;
                             function eraseWhoami() {
-                                if (whoamiLen > 0) {
-                                    elWhoami.textContent = textWhoami.substring(0, whoamiLen - 1);
-                                    whoamiLen--;
-                                    setTimeout(eraseWhoami, speed / 2);
-                                } else {
-                                    setTimeout(runCycle, 500);
-                                }
+                                if (whoamiLen > 0) { elWhoami.textContent = textWhoami.substring(0, whoamiLen - 1); whoamiLen--; setTimeout(eraseWhoami, speed / 2); } 
+                                else { setTimeout(runCycle, 500); }
                             }
                             eraseWhoami();
                         }
                     }
                     eraseName();
                 }
-
                 typeWhoami();
             }
-
             runCycle();
         }
 
@@ -1094,30 +882,21 @@
                         const cmdLine = document.createElement('p');
                         cmdLine.innerHTML = `<span class="term-user">d4z2@kali</span>:<span class="term-path">~</span>$ <span class="term-cmd">${escapeHTML(command)}</span>`;
                         termOutputContainer.appendChild(cmdLine);
-
                         processCommand(command);
                     } else {
                         const emptyLine = document.createElement('p');
                         emptyLine.innerHTML = `<span class="term-user">d4z2@kali</span>:<span class="term-path">~</span>$ `;
                         termOutputContainer.appendChild(emptyLine);
                     }
-
                     termBody.scrollTop = termBody.scrollHeight;
                 }
             });
         }
 
-        function escapeHTML(str) {
-            return str.replace(/[&<>'"]/g, 
-                tag => ({
-                    '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
-                }[tag] || tag)
-            );
-        }
+        function escapeHTML(str) { return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)); }
 
         function processCommand(cmd) {
-            // Buffer Overflow Easter Egg
-            if (cmd.length > 55) {
+            if (cmd.length > 50) {
                 const outLine = document.createElement('p');
                 outLine.className = 'term-output';
                 outLine.style.color = '#ef4444'; 
@@ -1131,54 +910,29 @@
             let output = '';
 
             switch (mainCmd) {
-                case 'whoami':
-                    output = 'd4z2 - Curious Explorer, CTF Player, Builder.';
-                    break;
-                case 'date':
-                    output = new Date().toString();
-                    break;
-                case 'clear':
-                    termOutputContainer.innerHTML = '';
-                    return; 
+                case 'whoami': output = 'd4z2 - Curious Explorer, CTF Player, Builder.'; break;
+                case 'date': output = new Date().toString(); break;
+                case 'clear': termOutputContainer.innerHTML = ''; return; 
                 case 'help':
                     output = 'Available commands: whoami, date, clear, echo, ls, cat, submit, sudo<br><br>' +
                              '<span style="color: #3b82f6; font-weight: bold;">[!] Hint:</span> Use <span style="color: #facc15;">cat flag.txt</span> to read the flag, then use <span style="color: #facc15;">submit &lt;flag_content&gt;</span> to see what happens!';
                     break;
-                case 'echo':
-                    output = escapeHTML(args.slice(1).join(' '));
-                    break;
-                case 'ls':
-                    output = '<span style="color: #3b82f6;">writeups</span>&nbsp;&nbsp;&nbsp;<span style="color: #27c93f;">flag.txt</span>';
-                    break;
+                case 'echo': output = escapeHTML(args.slice(1).join(' ')); break;
+                case 'ls': output = '<span style="color: #3b82f6;">writeups</span>&nbsp;&nbsp;&nbsp;<span style="color: #27c93f;">flag.txt</span>&nbsp;&nbsp;&nbsp;notes.md'; break;
                 case 'cat':
-                    if (args[1] === 'flag.txt') {
-                        output = 'D4z2{access_granted_welcome_to_the_mainframe}';
-                    } else if (args[1]) {
-                        output = `cat: ${escapeHTML(args[1])}: Permission denied`;
-                    } else {
-                        output = 'Usage: cat &lt;file&gt;';
-                    }
+                    if (args[1] === 'flag.txt') output = 'KMA{w3lc0m3_t0_my_w0rld}';
+                    else if (args[1]) output = `cat: ${escapeHTML(args[1])}: Permission denied`;
+                    else output = 'Usage: cat &lt;file&gt;';
                     break;
                 case 'submit':
-                    if (!args[1]) {
-                        output = 'Usage: submit &lt;flag&gt;';
-                    } else if (args[1] === 'D4z2{access_granted_welcome_to_the_mainframe}') {
+                    if (!args[1]) output = 'Usage: submit &lt;flag&gt;';
+                    else if (args[1] === 'KMA{w3lc0m3_t0_my_w0rld}') {
                         output = `<span style="color: #27c93f; font-weight: bold;">[+] FLAG ACCEPTED!</span> Brace yourself...`;
-                        
-                        // KÍCH HOẠT HIỆU ỨNG TRAP CARD SAU 0.5 GIÂY
-                        setTimeout(() => {
-                            document.getElementById('trap-card-overlay').style.display = 'flex';
-                        }, 500);
-                        
-                    } else {
-                        output = `<span style="color: #ef4444;">[-] Invalid flag. Keep digging!</span>`;
-                    }
+                        setTimeout(() => { document.getElementById('trap-card-overlay').style.display = 'flex'; }, 500);
+                    } else output = `<span style="color: #ef4444;">[-] Invalid flag. Keep digging!</span>`;
                     break;
-                case 'sudo':
-                    output = 'Nice try. This incident will be reported.';
-                    break;
-                default:
-                    output = `bash: ${escapeHTML(mainCmd)}: command not found`;
+                case 'sudo': output = 'Nice try. This incident will be reported.'; break;
+                default: output = `bash: ${escapeHTML(mainCmd)}: command not found`;
             }
 
             const outLine = document.createElement('p');
@@ -1190,6 +944,7 @@
         // Khởi động
         window.addEventListener('DOMContentLoaded', () => {
             typeWriterSequence();
+            window.addEventListener('resize', () => goToSlide(currentSlide));
         });
 
         showAbout();
@@ -1201,26 +956,8 @@
     <script>
         if(document.getElementById('particles-js')) {
             particlesJS("particles-js", {
-                "particles": {
-                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": "#2dd4bf" },
-                    "shape": { "type": "circle" },
-                    "opacity": { "value": 0.5, "random": false },
-                    "size": { "value": 3, "random": true },
-                    "line_linked": { "enable": true, "distance": 150, "color": "#2dd4bf", "opacity": 0.4, "width": 1 },
-                    "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": { "enable": true, "mode": "grab" },
-                        "onclick": { "enable": true, "mode": "push" },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": { "distance": 200, "line_linked": { "opacity": 1 } }
-                    }
-                },
+                "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#2dd4bf" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": false }, "size": { "value": 3, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#2dd4bf", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false } },
+                "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 200, "line_linked": { "opacity": 1 } } } },
                 "retina_detect": true
             });
         }
