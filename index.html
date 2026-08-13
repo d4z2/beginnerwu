@@ -932,7 +932,7 @@
                 case 'echo': output = escapeHTML(args.slice(1).join(' ')); break;
                 case 'ls': output = '<span style="color: #3b82f6;">writeups</span>&nbsp;&nbsp;&nbsp;<span style="color: #27c93f;">flag.txt</span>&nbsp;&nbsp;&nbsp;notes.md'; break;
                 case 'cat':
-                    if (args[1] === 'flag.txt') output = 'KMA{w3lc0m3_t0_my_w0rld}';
+                    if (args[1] === 'flag.txt') output = 'd4z2{w3lc0m3_t0_my_w0rld}';
                     else if (args[1]) output = `cat: ${escapeHTML(args[1])}: Permission denied`;
                     else output = 'Usage: cat &lt;file&gt;';
                     break;
